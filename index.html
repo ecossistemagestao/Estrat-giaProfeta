@@ -3,380 +3,369 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proposta Comercial · Profeta Menswear</title>
+<title>Profeta Menswear — Análise e Estratégia</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap');
 
-:root {
-  --black: #141414;
-  --dark: #1c1c1c;
-  --card: #202020;
-  --card2: #252525;
-  --border: #333333;
-  --silver: #c0c0c0;
-  --silver-light: #e0e0e0;
-  --white: #ffffff;
-  --muted: rgba(255,255,255,0.5);
-  --text: rgba(255,255,255,0.85);
-}
+  :root{
+    --bg:#141414;
+    --panel:#1c1c1c;
+    --panel-2:#212121;
+    --line:#333333;
+    --ink:#ededea;
+    --muted:#9c9c96;
+    --bronze:#a87d4f;
+    --bronze-soft:#a87d4f33;
+    --good:#7c9a7e;
+    --warn:#c2894a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{background:#0c0c0c;}
+  body{
+    background:#0c0c0c;
+    color:var(--ink);
+    font-family:'Manrope',sans-serif;
+    line-height:1.5;
+    padding:0 0 40px 0;
+  }
+  .wrap{max-width:430px;margin:0 auto;background:var(--bg);min-height:100vh;padding:0 20px;}
 
-* { margin:0; padding:0; box-sizing:border-box; }
-html, body { background:#141414 !important; color:var(--text); font-family:'Inter',sans-serif; min-height:100vh; }
+  header.top{
+    max-width:430px;
+    margin:0 auto;
+    background:var(--bg);
+    padding:36px 20px 24px 20px;
+    border-bottom:1px solid var(--line);
+    text-align:left;
+  }
+  header.top .eyebrow{
+    font-size:10.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--bronze);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  header.top h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:26px;
+    letter-spacing:-0.01em;
+    line-height:1.15;
+  }
+  header.top p{
+    color:var(--muted);
+    margin-top:10px;
+    font-size:13.5px;
+  }
 
-.page { width:100%; max-width:480px; margin:0 auto 24px; background:var(--card); border-radius:16px; overflow:hidden; box-shadow:0 4px 32px rgba(0,0,0,0.5); }
+  nav.tabs{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:var(--bg);
+    max-width:430px;
+    margin:0 auto;
+    display:flex;
+    border-bottom:1px solid var(--line);
+    padding:0 20px;
+    overflow-x:auto;
+  }
+  nav.tabs button{
+    background:none;
+    border:none;
+    color:var(--muted);
+    font-family:'Manrope',sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    padding:15px 12px 13px 12px;
+    cursor:pointer;
+    border-bottom:2px solid transparent;
+    white-space:nowrap;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  nav.tabs button:first-child{padding-left:0;}
+  nav.tabs button.active{color:var(--ink);border-bottom-color:var(--bronze);}
 
-/* CAPA */
-.cover { background:var(--dark); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:56px 32px 48px; position:relative; overflow:hidden; min-height:540px; }
-.cover-bg { position:absolute; top:-80px; left:50%; transform:translateX(-50%); width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(192,192,192,0.07) 0%,transparent 65%); pointer-events:none; }
-.cover-silver-top { position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,var(--silver),transparent); }
-.cover-tag { font-size:9px; font-weight:500; letter-spacing:5px; text-transform:uppercase; color:var(--silver); opacity:0.6; margin-bottom:36px; z-index:1; }
+  section.panel{display:none;padding:28px 0 0 0;}
+  section.panel.active{display:block;}
 
-/* Logo sem fundo branco */
-.cover-logo {
-  width:180px; height:180px; border-radius:16px; overflow:hidden;
-  margin-bottom:36px; z-index:1;
-}
-.cover-logo img { width:100%; height:100%; object-fit:cover; }
+  h2.section-title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:21px;
+    margin-bottom:5px;
+  }
+  .section-sub{color:var(--muted);font-size:13px;margin-bottom:22px;}
 
-.inner-logo {
-  width:38px; height:38px; border-radius:6px; overflow:hidden;
-}
-.inner-logo img { width:100%; height:100%; object-fit:cover; }
+  .stat-row{
+    display:flex;
+    gap:8px;
+    margin-bottom:26px;
+  }
+  .stat{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:12px 12px;
+    flex:1;
+    min-width:0;
+  }
+  .stat .num{font-family:'Fraunces',serif;font-size:18px;font-weight:600;}
+  .stat .lab{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.04em;margin-top:2px;}
 
-.cover-pre { font-size:11px; font-weight:300; color:rgba(192,192,192,0.5); letter-spacing:5px; text-transform:uppercase; margin-bottom:10px; z-index:1; }
-.cover-title { font-family:'Bebas Neue',sans-serif; font-size:44px; font-weight:400; color:var(--white); text-align:center; line-height:1.1; z-index:1; letter-spacing:3px; }
-.cover-title span { background:linear-gradient(180deg,#fff 30%,#999); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.cover-line { width:48px; height:1px; background:linear-gradient(90deg,transparent,var(--silver),transparent); margin:28px auto; z-index:1; }
-.cover-sub { font-size:10px; font-weight:300; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,0.3); z-index:1; }
-.cover-date { margin-top:28px; font-size:9px; font-weight:300; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.18); z-index:1; }
+  .block{margin-bottom:28px;}
+  .block h3{
+    font-family:'Fraunces',serif;
+    font-size:15.5px;
+    font-weight:600;
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .dot{width:6px;height:6px;border-radius:50%;display:inline-block;flex-shrink:0;}
+  .dot.good{background:var(--good);}
+  .dot.warn{background:var(--warn);}
+  .dot.bronze{background:var(--bronze);}
 
-/* HEADER INTERNO */
-.inner-header { background:var(--dark); padding:18px 22px; display:flex; align-items:center; gap:14px; border-bottom:1px solid var(--border); }
-.inner-header-line { flex:1; height:1px; background:rgba(192,192,192,0.1); }
-.inner-header-tag { font-size:8px; font-weight:500; letter-spacing:3px; text-transform:uppercase; color:rgba(192,192,192,0.3); }
+  ul.list{list-style:none;}
+  ul.list li{
+    padding:11px 0;
+    border-top:1px solid var(--line);
+    font-size:13.5px;
+    color:var(--ink);
+    display:flex;
+    gap:10px;
+  }
+  ul.list li:first-child{border-top:none;}
+  ul.list li .n{color:var(--bronze);font-family:'Fraunces',serif;font-weight:600;font-size:13px;min-width:16px;flex-shrink:0;}
+  ul.list li b{font-weight:700;}
 
-.inner-body { padding:28px 22px; background:var(--card); }
-.section-label { font-size:10px; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--silver); opacity:0.6; margin-bottom:6px; }
-.section-title { font-family:'Bebas Neue',sans-serif; font-size:30px; color:var(--white); letter-spacing:2px; line-height:1; }
-.section-title strong { background:linear-gradient(180deg,#fff 30%,#999); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-.silver-bar { width:32px; height:2px; background:linear-gradient(90deg,var(--silver),transparent); margin-top:10px; }
+  .callout{
+    background:var(--panel-2);
+    border-left:2px solid var(--bronze);
+    padding:13px 15px;
+    font-size:13px;
+    color:var(--ink);
+    margin-bottom:26px;
+  }
+  .callout b{color:var(--bronze);}
 
-.obj-block { background:var(--card2); border-left:2px solid var(--silver); padding:18px 16px; border-radius:0 8px 8px 0; margin-top:22px; }
-.obj-block p { font-size:14px; font-weight:300; color:var(--text); line-height:1.7; }
-.obj-block p strong { color:var(--white); font-weight:600; }
+  .pillars{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;}
+  .pillar{
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:14px 15px;
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+  }
+  .pillar .pct{font-family:'Fraunces',serif;font-size:19px;color:var(--bronze);font-weight:600;flex-shrink:0;min-width:42px;}
+  .pillar .pillar-text h4{font-size:13.5px;margin:0 0 3px 0;font-weight:700;}
+  .pillar .pillar-text p{font-size:12px;color:var(--muted);}
 
-.obj-note { margin-top:14px; padding:14px 16px; background:var(--card2); border:1px solid var(--border); border-radius:8px; }
-.obj-note p { font-size:12px; font-weight:300; color:var(--muted); line-height:1.65; }
-.obj-note strong { color:var(--silver); font-weight:600; }
+  .cal-day{
+    border-top:1px solid var(--line);
+    padding:12px 0;
+  }
+  .cal-day:first-child{border-top:none;}
+  .cal-day .cal-head{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:5px;
+  }
+  .cal-day .cal-date{font-size:12.5px;font-weight:700;color:var(--ink);min-width:52px;}
+  .cal-day .cal-fmt{
+    font-size:10.5px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    color:var(--bronze);
+    background:var(--bronze-soft);
+    padding:3px 7px;
+    border-radius:2px;
+  }
+  .cal-day .cal-fmt.story-only{color:var(--muted);background:none;padding:3px 0;}
+  .cal-day .cal-text{font-size:13px;color:var(--muted);padding-left:60px;}
+  .cal-day .cal-text b{color:var(--ink);font-weight:700;}
+  .cal-day .cal-text.cal-story{margin-top:4px;font-size:12px;}
 
-.pillars { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:22px; }
-.pillar { padding:14px; background:var(--card2); border:1px solid var(--border); border-radius:8px; }
-.pillar-icon { font-size:16px; margin-bottom:6px; }
-.pillar-title { font-size:12px; font-weight:600; color:var(--white); margin-bottom:4px; }
-.pillar-desc { font-size:11px; font-weight:300; color:var(--muted); line-height:1.5; }
+  .week-label{
+    font-family:'Fraunces',serif;
+    font-size:15px;
+    font-weight:600;
+    margin:30px 0 3px 0;
+  }
+  .week-note{color:var(--muted);font-size:12px;margin-bottom:10px;}
 
-.servico-card { border:1px solid var(--border); border-radius:10px; padding:18px; margin-top:14px; position:relative; overflow:hidden; background:var(--card2); }
-.servico-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--silver),transparent); }
-.servico-icon { font-size:18px; margin-bottom:8px; }
-.servico-titulo { font-family:'Bebas Neue',sans-serif; font-size:18px; color:var(--white); letter-spacing:1px; margin-bottom:10px; }
-.servico-lista { list-style:none; }
-.servico-lista li { font-size:12px; font-weight:300; color:var(--text); line-height:1.65; padding-left:14px; position:relative; margin-bottom:2px; }
-.servico-lista li::before { content:'—'; position:absolute; left:0; color:var(--silver); opacity:0.5; font-size:10px; }
+  footer{
+    max-width:430px;
+    margin:40px auto 0 auto;
+    padding:24px 20px 0 20px;
+    color:var(--muted);
+    font-size:11px;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
 
-.aviso-modelo { background:rgba(192,192,192,0.05); border:1px solid rgba(192,192,192,0.18); border-radius:10px; padding:16px; margin-top:14px; }
-.aviso-modelo-title { font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--silver); margin-bottom:8px; }
-.aviso-modelo p { font-size:12px; font-weight:300; color:var(--muted); line-height:1.65; }
-.aviso-modelo strong { color:var(--silver-light); font-weight:600; }
-
-.trafego-block { background:var(--dark); border-radius:10px; padding:20px; margin-top:14px; border:1px solid var(--border); }
-.trafego-label { font-size:9px; font-weight:500; letter-spacing:3px; text-transform:uppercase; color:var(--silver); opacity:0.6; margin-bottom:6px; }
-.trafego-titulo { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--white); letter-spacing:1px; margin-bottom:12px; }
-.trafego-desc { font-size:12px; font-weight:300; color:var(--muted); line-height:1.65; margin-bottom:14px; }
-.pills { display:flex; flex-wrap:wrap; gap:7px; }
-.pill { background:rgba(192,192,192,0.08); border:1px solid rgba(192,192,192,0.18); border-radius:20px; padding:5px 11px; font-size:10px; color:var(--silver); }
-.verba-box { margin-top:14px; background:rgba(192,192,192,0.05); border:1px solid rgba(192,192,192,0.15); border-radius:8px; padding:12px 14px; }
-.verba-box-label { font-size:9px; font-weight:500; letter-spacing:3px; text-transform:uppercase; color:var(--silver); opacity:0.6; margin-bottom:4px; }
-.verba-box-valor { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--silver); }
-.verba-box-desc { font-size:11px; font-weight:300; color:rgba(255,255,255,0.35); margin-top:3px; line-height:1.5; }
-
-/* OPÇÕES */
-.opcao { border-radius:12px; margin-top:16px; overflow:hidden; border:1px solid var(--border); }
-
-.op-completo { border:1.5px solid var(--silver); }
-.op-completo .op-header { background:linear-gradient(135deg,#282828,#1c1c1c); padding:20px 20px 16px; position:relative; overflow:hidden; }
-.op-completo .op-header::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--silver),transparent); }
-.op-completo .op-badge { display:inline-block; font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#141414; background:var(--silver); border-radius:20px; padding:4px 12px; margin-bottom:10px; }
-.op-completo .op-nome { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--white); letter-spacing:2px; line-height:1.1; }
-.op-completo .op-valor { font-family:'Bebas Neue',sans-serif; font-size:48px; background:linear-gradient(180deg,#fff 30%,#999); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; margin-top:10px; }
-.op-completo .op-periodo { font-size:11px; font-weight:300; color:var(--muted); margin-top:2px; }
-.op-body { padding:18px 20px 20px; background:var(--card2); }
-
-.op-reels .op-header { background:var(--card2); padding:20px 20px 16px; }
-.op-reels .op-badge { display:inline-block; font-size:9px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--silver); background:rgba(192,192,192,0.1); border:1px solid rgba(192,192,192,0.2); border-radius:20px; padding:4px 12px; margin-bottom:10px; }
-.op-reels .op-nome { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--white); letter-spacing:2px; }
-.op-reels .op-valor { font-family:'Bebas Neue',sans-serif; font-size:48px; color:var(--white); line-height:1; margin-top:10px; }
-.op-reels .op-periodo { font-size:11px; font-weight:300; color:var(--muted); margin-top:2px; }
-
-.item-list { list-style:none; }
-.item-list li { font-size:12px; font-weight:300; color:var(--text); line-height:1.65; padding-left:14px; position:relative; margin-bottom:3px; }
-.item-list li::before { content:'—'; position:absolute; left:0; color:var(--silver); opacity:0.4; font-size:10px; }
-
-.verba-note { margin-top:10px; background:rgba(192,192,192,0.05); border:1px solid rgba(192,192,192,0.12); border-radius:8px; padding:11px 13px; }
-.verba-note p { font-size:11px; font-weight:300; color:var(--muted); line-height:1.6; }
-.verba-note strong { color:var(--silver); font-weight:500; }
-
-.reels-destaque { background:var(--dark); border-radius:8px; padding:14px; margin-bottom:12px; border:1px solid rgba(192,192,192,0.1); }
-.reels-destaque-label { font-size:9px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--silver); margin-bottom:6px; }
-.reels-destaque-title { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--white); letter-spacing:1px; margin-bottom:3px; }
-.reels-destaque-sub { font-size:11px; font-weight:300; color:var(--muted); margin-bottom:10px; line-height:1.5; }
-.reels-tags { display:flex; flex-wrap:wrap; gap:6px; }
-.reels-tag { background:rgba(192,192,192,0.08); border:1px solid rgba(192,192,192,0.18); border-radius:20px; padding:4px 10px; font-size:10px; color:var(--silver); }
-
-.inner-footer { background:var(--dark); padding:16px 22px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid var(--border); }
-.footer-brand { font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:2px; color:rgba(192,192,192,0.35); }
-.footer-page { font-size:9px; font-weight:300; letter-spacing:2px; color:rgba(255,255,255,0.15); }
+  @media print{
+    nav.tabs{display:none;}
+    section.panel{display:block !important;page-break-before:always;}
+    section.panel:first-of-type{page-break-before:avoid;}
+    body{background:#fff;color:#111;}
+    .stat, .pillar{background:#f4f4f2;border-color:#ddd;}
+    .callout{background:#f4f4f2;}
+  }
 </style>
 </head>
 <body>
 
-<!-- CAPA -->
-<div class="page">
-  <div class="cover">
-    <div class="cover-bg"></div>
-    <div class="cover-silver-top"></div>
-    <div class="cover-tag">Proposta Comercial</div>
-    <div class="cover-logo"><img src="data:image/jpeg;base64,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" alt="Profeta"/></div>
-    <div class="cover-pre">Gestão de</div>
-    <div class="cover-title"><span>Redes Sociais<br>& Tráfego Pago</span></div>
-    <div class="cover-line"></div>
-    <div class="cover-sub">Profeta Menswear · Moda Masculina</div>
-    <div class="cover-date">Julho de 2026</div>
-  </div>
-</div>
+<header class="top">
+  <div class="eyebrow">Ecossistema Gestão · Profeta Menswear</div>
+  <h1>Análise, estratégia e calendário</h1>
+  <p>Diagnóstico do perfil @profetamenswear e plano de conteúdo a partir de 17 de agosto, considerando que a primeira captação de imagens ainda não foi realizada.</p>
+</header>
 
-<!-- OBJETIVO -->
-<div class="page">
-  <div class="inner-header">
-    <div class="inner-logo"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAEYARgDASIAAhEBAxEB/8QAGwABAQADAQEBAAAAAAAAAAAAAAEEBQYHAwL/xABGEAACAgECAgQJCQYEBQUAAAAAAQIDBAURBhITITFBFBUiUWGRk6HBMkJSVFVxgdHhI0NTYpKxBxYzciQlJmPwc4KisvH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A4IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgAABAABSAAAAABSAAAAAAAAAAUAQFAEAAAAAAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoEAAAAAAAABQBAUgAFAEAAAAACkKBkZeBk4ca5X1uKsW6fw+8xjcYusqyjwTU4O+iXVz/ADo/ma/Mx/Br3GLlKDXNCUouLcfPswMcAoH7qptubVVU7Gu3li3sfhpptNbNdqZ98TNycK1WY1sq2nvsn1P713m04hVWVj4WqVRUHkxcbYrunHtA0ZQQAAAABQAAAgKAICgCFIAAKAICkAoAAhSAAAAKQAAAUAQAAbbXfKq0+3unjL3GpOj6WFWPoGTYlKCcoSTW6232A5zcsXHmXN1x369vMeo242JRRZfbTUoVxcpPkXUkYHCuIsuu/VL6YKWTPauPKtowXUtv/O4Dl8nH0jAx5XY+Y8y6yO1VfLt0e/fL0r+5r55SlpFWLvu4Xzn9yaS+DPXa8Olfua/6EYupZmJgThj04tWRm2reFKilsu+Un82K84HkJTrNSx8nUuG8vWMuUWo3RjjwrjywUObZyS9Pp8xyQFBCgQpCgQFAAEKAAAAEKAAAEBSAUEAFICgQoIABSAAUAQAADc5a5+E8Cf0MiyHxNObn5fBm/wDDztvXADoNT1CWXwPTZW97chwolt3y36/7e86/TcGOHg0Y0V1VQUfUjzXhi2WVm4OlyW9fhkchejaL3/sj1mUoVRcpNJJbtvuQGp4h1evRMBTjHpMq18lFX0pfkjQZ2JdpWhTVs+l1jV7I02WPtXN2xXoS6j9aO5cQ8Q363em8TGfRYkX5/P8AH736D66hZ4bxnhUb714dMrmv5n1L4AZeu4ldPCWRhVLyKcfaK/27P4HlR67nftsS+r6dco+tHkW23U+4AAUCAFAhSACgAAQoAAAACAAAAKQFAgBQAIUCAoAgAAAAAbnGalwhnR74ZdUvXGS+Bpja4Mv+ntVr/npl/wDJr4gZvAcU+J6JP5kJy923xOw4zz7K9MjhY7byc6apgl5u/wDL8Tj+BZcvEKf/AGZ/A6TfxjxdO2XXTp1ahH/fL/z3AbjT8avTdPpxKtuWqOzfnfe/WaLS59LxJrGS+2Mo1L8P/wAN5KzrOHt1V6dTqarf/E5GXNRf0Uu1+8Dpc3WsDEt6K/JjGffFbtr79uw86yeTwm3o2pQ53ytd63Pm25ScpNtvrbfeQAAABSAAAUCFAAhQAABAAAAAFAgAAAACggAoIAAAAoIAKZ2DL/l+pQ89UH6pr8zAMvCltVmR+lQ//tFgZ/CVyp16qUupck0/Vv8AA6vQk1p8smf+pl2Svl+L6vdscFgznDKh0fyp7wX/ALlt8T0SPLTVCqPyYRUV9yA+07DzvWodHrGUvPY5evrO6nYcnxRRtl15EV1WR5W/Sv0A0gIUAQoAgKQCgACFAAhQAICgCAAAAUAQAAAAKQpAAAAApAKQACn2xrI19LzfOqlFfefAAZWm21UahRdfv0cJcz2W/YdBdxTj7tV49svS2kcqAOk/zNXLtxpr7pJn4y9UwNQxJ0zc65vri5R6k/wOeAFIABSFIBQQAUEKABCgCAoAhQBAUAQpAAPtRi35G/QU2WbdvLFvY+R1fCNe2DdZ9Kzb1L9QOe8WZ/1O/wDoY8WZ/wBTv9mzs8vWcLBv6HIskrNk9lFvqPkuJdL/AIs/ZsDjbsLKx4812NbXHzyg0j8U0W5FnR0VTsntvywW72PRcPLxtSx5TokrK9+WSa9zTNRouBDD4mzoVrauFacV5lLZ7Acz4q1D6jkezZfFOo/UMn2bO/z9UxNMVby7HHpN+XaLe+xirizSV23WezYHFPSNSS3eBk7f+mzDlFxk4yTTXU01s0em6fr+najkKjGubsa3UZRa3NNx3g1LGozYxUbefo5NL5S2bW/qA42uuds1CqEpyfZGK3ZleKNSfZgZXspfkejcP6XRpOm17RirZQU7bH2t7b9vmRjPjbR4Tcee+Wz23jX1P3gcF4n1P7PyvZS/IktJ1GEXKWBlRiu1uqXV7j0BcdaMu/J9l+pvdH1bE1jGeRhTk4RlyyUls0wPF4xcpKMU3JvZJdrZn+ItW+zMv2MjreI9MohxxpTpgovJnGdkUurdS7fxS9x2Or6pi6RieE5kpRr5lDyY7vd+j8APIfEerfZuX7KRHouqLt07K9lI9DfHWiP97f7Jnzlxvor/AHt3smB554sz3c6VhZDtUeZw6N7pefY/fibU/s/K9kzvdAzKtU1nU9QocnU41VQcls9km37z76lxHp2mZbxsmyxWpJtRg32ged+J9T+z8n2TJ4p1H6hk+zZ3MuMdHf7y72TPm+LtIb/1LfZsDha8HLtsnXXjXTnX1TjGDbj959PFWo/Ucj2bN/o2vYGLfqF2ROcZZF7lFKDfk9e39za18T6ZdbCuuyxynJRS6N9rA4vxVqH1LI9myeK8/wCpZHs2eh5uXVhY8r8iTVcdt2lv2mrfFGl/xLPZsDjbsLKohz3Y9tcN9uaUWkfinGvyN+gpnZy9vJHfY6HW9Sq1iujDwOedk7N2nFruNti4+NommvnkoqK3sn9JgcTdi346TvpsrUuxyi1ufI7rWcRZ+mzjHZzS562u9/qjhQAAAAACAACna8NQ5NGqf0pSl7/0OJO+0qKp0jGTXZUpP+4GPm8P4+flTyLbrVKW3VHbZbI+K4Sw3+/v935GglrupOTay5pb9XUvyHj3VPrk/UvyA7TCw8XR8KUYy5a15c5zZicPXrOzNRzVHaM5xhHfzJHHZWfl5myyciyxLsTfV6jseDquTRufvstk/wCy+AHw1qen5OvU4eo86gq1yTjPZRk33+4zVwfpXer/AGn6HJcR29NruU091GXIvwWxv+FOIefk0/Nn5XZTZJ9v8r+AG60/QtN0m15NUXGaW3PbPflXec7xNq1Wr6hi4GJPnphalKa7JSb26vQjoeIdEjq+HtB8uRWm65PsfoZwOnvwHWcd5cXDob49ImuuOz6wPTtas8H0TNmvm0SS9Wx5IeyX0U5uJOi1KdN0dns+1P0mkXAukPvyfafoB5uem/4c1cnD07P4l8n6kkfmPAej+fJ9p+h0WJjYmkadGqrloxqYttyfZ3ttgc5mbZP+JmFDtWPj8z9D2k/ijps7Exc2pV5lNd1afMo2Ldb+c5DhfLjq/G+pahBfslVy1t+bdJe5GL/ibe/DcGlNrlrlN9fne3wA6iWgaJ9nYn9CNBxjp2l4OgzsxsPHrtlZGMZQit117v8AscBzS+k/WRtvtbA9C4Aq5NEtsf7y5+5JGxzIaFbkzll+AyvT2k7HHm6u57n44Rq6LhrE3WzmpT9cmY+VwlpmTk2329O7LZOctrO9/gBZUcN90dN9cDV8QQ0WrR73iQwuneyj0fK5LrXmMx8GaSv4/tP0NbrnDenadpV+VV03PBLl5p7rdtIDkDP0GvpdbxI+axS9XX8DXm74Sr59chLuhCUvdt8QN7xhZyaOofTtiv7s4c63jazanFq88pS9y/MweGdI8KuWZfH9jW/JT+fL8kBs+G9J8Dx/Cb47X2LqT+ZH82abiLVPDsnoaW/B6nsv5n5zpc/W8LAyHRfOTs23ajHfb7zDfEelvus9kA4bzfCdOVUn+0o8n713fkaDX8LwTUZOK2rt8uPo869Z0EOIdNlNRi5x5mlu4bIvEOH4Xp0pRW9lXlx9K70BxZSACggAAAAZ3jjUFV0ayZcnLy7bLs9RggAAAKZuNrGoYtEaaMmUK49kUl1e4wQB+7LJW2SssfNObcpPztn57CADYrXtWSSWoX7L+YxMnJvy7ndk2ytsa2cpdrPiAM3G1fUcSvo8fNvrrXZFT6kff/Mes/aWR/UasoG0/wAy619p5H9Rj5mrahnwUMvNvugvmzm2vUYQAzdO1XO0uU5YORKl2JKTik99vvPxqGo5ep3q7NvldZGPKpSS6l5ur7zFAApABsadW1anGiqczIhRXtBcsvJj5l7j9T1rWYKLnnZMVOPNHeXavP7jaab4ueiV6dmXQgshSy7LE93BxaSj97ipdXpRg8S5VWZfhX0qEIyxYro4Pfo9nJKPq2A/UcviOzEeXG7NeMk27evl2Xb1mFdqGpZ1FkLci+6qK5pxb3SW/a/x2NvqfIuHsGMasa1V40U7Vk+XCUpNtcifX2+YxNAzY6biajlbVTm4QqVVnZOMpeUtvuQGplTbGmF0oSVc21GTXU2u3b1ozNPhqePTZnYNdyqgnGdsIbpLvMviCzC8E02nTrJSoUJ2bS+VByl8l+lbbH3rinw01k3UqFVUp41lV20+aT8qqUO179fd+IGpycnO1KDtvlO6NC65bdUE337ekyaNQ1iqCopstjGurn5VBeTDbffs7Os/XDluNHMvx86bhi5FEoWNejyl+O8TO1rV8fK0uFtEVXlZkVXdGPZCuEnyx/Hyf6QNJRi5upX2Oim3Jt+VPkW76+9nwtqsotlVbBwsg9pRkutM3/DsYeKdQThj2ztnVBVXXqreK3be+69BqcXGhm6mqZTrx6pTbnJy8mEe19b7ers84GNOqdcYSnCUVNc0G18pb7br8UzaYeVrmXCfgnhF8a0lLkhzcvm7vQZnEOTgahptNuDa9sWzoo1zgoSjW15KS3e+zT6/SfbhrIxMfTYwvnDprcvmq5rOVRnCG8XLb5rb2A5d77vft7yH0vnOzIsss255Tcpbdm7fWfMAAAAAApAAAAAAFAgAAAAACkAAoAgKQAAAAAAAAAAAAAAApAAAAAACgACAACggAFIUACAAAAABQAIABSFAEAApAUCAACkKQCggAoIAAAApCkApAUAAAIAABQAIAAAKQAAAABQIAUCFAAgBQBAAKQAAAAAAAAAAAUACAAAUACAAAAABQIAUCAFAgAAAAAAAKAAIUgApCkAApAAKQAAUCAoAgAAAFAgBQIAAAAAAAAUEApAAABQIAAAKAAAAEKQAUEAFBABQQCkBQBAAAAAFIAKQAAAAAAAAAAAAAAAAAAUAAAAIAAKQACkAAAAAAAAAAAAAAAAAAAACgAD/2Q==" alt="Profeta"/></div>
-    <div class="inner-header-line"></div>
-    <div class="inner-header-tag">Proposta Comercial</div>
-  </div>
-  <div class="inner-body">
-    <div class="section-label">01 —</div>
-    <div class="section-title">Objetivo <strong>Estratégico</strong></div>
-    <div class="silver-bar"></div>
-    <div class="obj-block">
-      <p>Consolidar a <strong>presença digital da Profeta Menswear</strong>, posicionando a marca no universo da moda masculina premium com comunicação de <strong>autoridade, estilo e identidade forte</strong> — atraindo o público certo e convertendo seguidores em <strong>clientes recorrentes</strong>.</p>
-    </div>
-    <div class="obj-note">
-      <p>A estratégia une <strong>gestão de conteúdo orgânico</strong> com <strong>tráfego pago</strong> para maximizar alcance e conversão, criando uma presença digital consistente e alinhada ao posicionamento premium da marca.</p>
-    </div>
-    <div style="margin-top:24px;">
-      <div class="section-label">02 —</div>
-      <div class="section-title">Pilares do <strong>Trabalho</strong></div>
-      <div class="silver-bar"></div>
-    </div>
-    <div class="pillars">
-      <div class="pillar"><div class="pillar-icon">🎯</div><div class="pillar-title">Posicionamento</div><div class="pillar-desc">Identidade premium e autoridade no nicho masculino.</div></div>
-      <div class="pillar"><div class="pillar-icon">🎬</div><div class="pillar-title">Produção Visual</div><div class="pillar-desc">Conteúdo de alto impacto com as peças em uso.</div></div>
-      <div class="pillar"><div class="pillar-icon">📈</div><div class="pillar-title">Crescimento</div><div class="pillar-desc">Tráfego pago para ampliar alcance e vendas.</div></div>
-      <div class="pillar"><div class="pillar-icon">📊</div><div class="pillar-title">Resultados</div><div class="pillar-desc">Monitoramento e otimização contínua.</div></div>
-    </div>
-  </div>
-  <div class="inner-footer">
-    <div class="footer-brand">Profeta Menswear</div>
-    <div class="footer-page">02</div>
-  </div>
-</div>
+<nav class="tabs">
+  <button class="active" onclick="showTab(0,this)">Análise do perfil</button>
+  <button onclick="showTab(1,this)">Estratégia de conteúdo</button>
+  <button onclick="showTab(2,this)">Calendário</button>
+</nav>
 
-<!-- SERVIÇOS -->
-<div class="page">
-  <div class="inner-header">
-    <div class="inner-logo"><img src="data:image/jpeg;base64,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" alt="Profeta"/></div>
-    <div class="inner-header-line"></div>
-    <div class="inner-header-tag">Proposta Comercial</div>
-  </div>
-  <div class="inner-body">
-    <div class="section-label">03 —</div>
-    <div class="section-title">Serviços <strong>Incluídos</strong></div>
-    <div class="silver-bar"></div>
+<!-- TAB 1: ANÁLISE -->
+<section class="panel active">
+  <div class="wrap">
+    <h2 class="section-title">Análise do perfil</h2>
+    <p class="section-sub">Estado atual do @profetamenswear e onde estão as maiores oportunidades.</p>
 
-    <div class="servico-card">
-      <div class="servico-icon">📋</div>
-      <div class="servico-titulo">Gestão & Planejamento</div>
-      <ul class="servico-lista">
-        <li>Gestão completa do Instagram</li>
-        <li>Planejamento mensal com cronograma de conteúdos</li>
-        <li>Estratégia de comunicação alinhada ao posicionamento da marca</li>
+    <div class="stat-row">
+      <div class="stat"><div class="num">907</div><div class="lab">Posts</div></div>
+      <div class="stat"><div class="num">15,6 mil</div><div class="lab">Seguidores</div></div>
+      <div class="stat"><div class="num">5</div><div class="lab">Seguindo</div></div>
+    </div>
+
+    <div class="block">
+      <h3><span class="dot good"></span>Pontos fortes</h3>
+      <ul class="list">
+        <li><span class="n">01</span><div><b>Base de seguidores consolidada.</b> 15,6 mil seguidores é uma fundação real para trabalhar, a marca não está começando do zero.</div></li>
+        <li><span class="n">02</span><div><b>Identidade de logo limpa.</b> O símbolo em círculo preto com tipografia forte é reconhecível e funciona bem como foto de perfil.</div></li>
+        <li><span class="n">03</span><div><b>Prova social já existe.</b> Já existe um destaque de Clientes, sinal de que a marca entende a importância de mostrar quem compra, mesmo que a execução precise melhorar.</div></li>
+        <li><span class="n">04</span><div><b>Alcance nacional na proposta.</b> "Entregas rápidas para todo o Brasil" amplia o mercado além de Brasília, mas isso não está sendo explorado no conteúdo.</div></li>
       </ul>
     </div>
 
-        <div class="servico-card">
-      <div class="servico-icon">⚙️</div>
-      <div class="servico-titulo">Setup do Instagram</div>
-      <ul class="servico-lista">
-        <li>Otimização da bio com palavras-chave para ser encontrado no Instagram</li>
-        <li>Configuração da foto de perfil com a logo correta</li>
-        <li>Criação e organização dos destaques com capas alinhadas à identidade visual</li>
-        <li>Ajuste do nome de usuário e nome de exibição para melhor ranqueamento</li>
-        <li>Configuração do perfil comercial e categoria correta</li>
-        <li>Link da bio otimizado (WhatsApp ou landing page)</li>
+    <div class="block">
+      <h3><span class="dot warn"></span>Pontos de melhoria</h3>
+      <ul class="list">
+        <li><span class="n">01</span><div><b>Categoria do perfil incorreta.</b> Está como "Criador(a) de conteúdo digital". O correto é uma categoria de varejo (ex: Loja de roupas), que ajuda na descoberta do perfil. A categoria pode ficar oculta na bio, o ajuste é só interno.</div></li>
+        <li><span class="n">02</span><div><b>Bio sem hierarquia nem chamada para ação.</b> O texto informa bem, mas não direciona o visitante para uma ação clara nem destaca um diferencial competitivo (parcelamento, frete, atendimento).</div></li>
+        <li><span class="n">03</span><div><b>Link da bio pouco profissional.</b> Aponta para um site feito em canva.site, sem rastreamento de cliques e sem integração de checkout. Recomenda-se um link próprio (Linktree ou site com domínio da marca).</div></li>
+        <li><span class="n">04</span><div><b>Destaques com espaço para evoluir.</b> Os que existem hoje (Loja, #useprofeta, Clientes, Bermudas, Entrega) podem ganhar uma curadoria nova, com capas, nomes e conteúdo interno atualizados para refletir melhor o momento atual da marca.</div></li>
+        <li><span class="n">05</span><div><b>Grid sem padrão fotográfico.</b> O feed mistura manequins em ambientes diferentes, vídeo pessoal e still de produto sem uma diretriz única de luz, fundo e enquadramento.</div></li>
+        <li><span class="n">06</span><div><b>Sem sinalização de novidade.</b> Não há destaque dedicado a lançamentos, o que dificulta que o seguidor recorrente saiba quando chegou peça nova.</div></li>
       </ul>
     </div>
 
-<div class="servico-card">
-      <div class="servico-icon">🖼️</div>
-      <div class="servico-titulo">Conteúdo para Feed & Stories</div>
-      <ul class="servico-lista">
-        <li>3 publicações semanais no feed</li>
-        <li>Conteúdos estáticos (fotos) e carrosséis + legendas estratégicas</li>
-        <li>Produção de stories com conteúdos estratégicos</li>
+    <div class="block">
+      <h3><span class="dot bronze"></span>Recomendações prioritárias</h3>
+      <ul class="list">
+        <li><span class="n">01</span><div>Trocar a categoria do perfil para <b>Loja de roupas</b> ou <b>Boutique</b>, mantendo a visibilidade da categoria desativada na bio.</div></li>
+        <li><span class="n">02</span><div>Reescrever a bio com estrutura de leitura rápida e uma chamada para ação única.</div></li>
+        <li><span class="n">03</span><div>Migrar o link da bio para uma ferramenta própria com rastreamento.</div></li>
+        <li><span class="n">04</span><div>Refazer todos os destaques atuais e incluir <b>Depoimentos</b>, <b>Dúvidas</b> e <b>Lançamentos</b>, com capas e curadoria novas.</div></li>
+        <li><span class="n">05</span><div>Definir uma diretriz fotográfica simples (fundo, luz, ângulo) para padronizar o grid a partir da próxima captação.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TAB 2: ESTRATÉGIA -->
+<section class="panel">
+  <div class="wrap">
+    <h2 class="section-title">Estratégia de conteúdo</h2>
+    <p class="section-sub">Pilares, tom de voz e frequência de publicação.</p>
+
+    <div class="callout">
+      <b>Ponto de atenção:</b> a primeira captação de imagens e vídeos do cliente ainda não foi realizada. A estratégia abaixo separa uma fase de pré-captação, com conteúdo que não depende de fotos novas, de uma fase pós-captação, quando entra material inédito.
+    </div>
+
+    <div class="block">
+      <h3>Pilares de conteúdo</h3>
+      <div class="pillars">
+        <div class="pillar"><div class="pct">40%</div><div class="pillar-text"><h4>Produto e vitrine</h4><p>Peças em destaque, looks completos, detalhes de tecido e caimento.</p></div></div>
+        <div class="pillar"><div class="pct">25%</div><div class="pillar-text"><h4>Estilo e consultoria</h4><p>Como combinar peças, o que usar em cada ocasião, dicas rápidas.</p></div></div>
+        <div class="pillar"><div class="pct">20%</div><div class="pillar-text"><h4>Bastidores da marca</h4><p>Loja física, processo, chegada de novas coleções.</p></div></div>
+        <div class="pillar"><div class="pct">15%</div><div class="pillar-text"><h4>Prova social</h4><p>Clientes usando as peças, depoimentos, repost de conteúdo espontâneo.</p></div></div>
+      </div>
+    </div>
+
+    <div class="block">
+      <h3>Tom de voz</h3>
+      <ul class="list">
+        <li><span class="n">01</span><div>Direto e confiante, sem exageros de linguagem de vendas.</div></li>
+        <li><span class="n">02</span><div>Fala de homem para homem, próximo mas nunca informal demais.</div></li>
+        <li><span class="n">03</span><div>Foco em praticidade: como a peça resolve um problema do dia a dia dele.</div></li>
       </ul>
     </div>
 
-    <div class="servico-card">
-      <div class="servico-icon">🎬</div>
-      <div class="servico-titulo">Produção de Reels Profissionais</div>
-      <div class="reels-destaque">
-        <div class="reels-destaque-label">🎥 Produção completa de vídeo</div>
-        <div class="reels-destaque-title">4 Reels por mês</div>
-        <div class="reels-destaque-sub">1 captação mobile mensal (até 3h) · Até 45 segundos cada</div>
-        <div class="reels-tags">
-          <div class="reels-tag">Captação no local</div>
-          <div class="reels-tag">Edição profissional</div>
-          <div class="reels-tag">Publicação</div>
-        </div>
-      </div>
-      <ul class="servico-lista">
-        <li>Vídeos com as peças em uso, valorizando estilo e caimento</li>
+    <div class="block">
+      <h3>Frequência sugerida</h3>
+      <ul class="list">
+        <li><span class="n">01</span><div><b>Feed:</b> 3 publicações por semana, sendo 1 reels e 2 no formato foto ou carrossel.</div></li>
+        <li><span class="n">02</span><div><b>Stories:</b> todos os dias, priorizando bastidores e enquetes.</div></li>
       </ul>
     </div>
+  </div>
+</section>
 
-    <div class="aviso-modelo">
-      <div class="aviso-modelo-title">⚠️ Observação — Modelo</div>
-      <p>Para os vídeos e fotos das peças em uso, <strong>provavelmente será necessária a contratação de um modelo</strong>. Esse custo não está incluso na prestação de serviço e deve ser acordado à parte. Podemos auxiliar na indicação de profissionais.</p>
+<!-- TAB 3: CALENDÁRIO -->
+<section class="panel">
+  <div class="wrap">
+    <h2 class="section-title">Calendário</h2>
+    <p class="section-sub">Duas semanas a partir de 17 de agosto de 2026.</p>
+
+    <div class="callout">
+      <b>Sem captação ainda:</b> a semana 1 usa apenas material já existente no perfil e formatos que não dependem de fotos novas. A captação precisa ser agendada durante essa semana para que a semana 2 já entre com conteúdo inédito. Ritmo fixo: 3 posts no feed por semana, sendo 1 reels, e stories todos os dias.
     </div>
 
-    <div class="servico-card">
-      <div class="servico-icon">📊</div>
-      <div class="servico-titulo">Acompanhamento de Resultados</div>
-      <ul class="servico-lista">
-        <li>Relatório mensal com análise de desempenho</li>
-        <li>Acompanhamento do crescimento do perfil</li>
-        <li>Recomendações para otimização da estratégia digital</li>
-      </ul>
-    </div>
+    <div class="week-label">Semana 1 · Pré-captação</div>
+    <div class="week-note">17 a 23 de agosto — reaproveitamento de material existente e formatos de baixa produção.</div>
 
-    <div class="trafego-block">
-      <div class="trafego-label">Serviço adicional</div>
-      <div class="trafego-titulo">Tráfego Pago</div>
-      <div class="trafego-desc">Campanhas no Meta Ads para ampliar o alcance da Profeta Menswear e acelerar as vendas com <strong style="color:var(--silver);">estratégia de captação e conversão</strong>.</div>
-      <div class="pills">
-        <div class="pill">Meta Ads</div>
-        <div class="pill">Campanhas de conversão</div>
-        <div class="pill">Testes A/B</div>
-        <div class="pill">Otimização contínua</div>
-      </div>
-      <div class="verba-box">
-        <div class="verba-box-label">Verba inicial indicada</div>
-        <div class="verba-box-valor">R$ 900 – R$ 1.200 / mês</div>
-        <div class="verba-box-desc">Investimento direto em anúncios, fora do contrato. Pago à plataforma.</div>
-      </div>
-    </div>
-  </div>
-  <div class="inner-footer">
-    <div class="footer-brand">Profeta Menswear</div>
-    <div class="footer-page">03</div>
-  </div>
-</div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Seg 17</span><span class="cal-fmt">Feed · Reels</span></div><div class="cal-text">Reaproveitar vídeo já publicado no grid, com legenda anunciando novidades chegando.</div><div class="cal-text cal-story"><b>Stories:</b> bastidor rápido do reels e convite para acompanhar a semana.</div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Ter 18</span><span class="cal-fmt story-only">Stories</span></div><div class="cal-text">Enquete "qual estilo você mais usa: casual ou clássico?", formato de engajamento puro.</div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Qua 19</span><span class="cal-fmt">Feed · Carrossel</span></div><div class="cal-text">Institucional "Por que Profeta", só com tipografia e identidade visual, sem depender de fotos novas.</div><div class="cal-text cal-story"><b>Stories:</b> prévia e enquete sobre o carrossel do dia.</div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Qui 20</span><span class="cal-fmt story-only">Stories</span></div><div class="cal-text">Repost de cliente do destaque atual, prova social. <b>Agendar a captação para esta semana.</b></div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Sex 21</span><span class="cal-fmt">Feed · Carrossel</span></div><div class="cal-text">Dica de estilo educativa usando fotos já existentes no feed.</div><div class="cal-text cal-story"><b>Stories:</b> recap da dica e chamada para o fim de semana.</div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Sáb 22</span><span class="cal-fmt story-only">Stories</span></div><div class="cal-text">Bastidores simples da loja física, registro de celular, sem produção.</div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Dom 23</span><span class="cal-fmt story-only">Stories</span></div><div class="cal-text">Repost do melhor destaque da semana.</div></div>
 
-<!-- OPÇÕES -->
-<div class="page">
-  <div class="inner-header">
-    <div class="inner-logo"><img src="data:image/jpeg;base64,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" alt="Profeta"/></div>
-    <div class="inner-header-line"></div>
-    <div class="inner-header-tag">Proposta Comercial</div>
-  </div>
-  <div class="inner-body">
-    <div class="section-label">04 —</div>
-    <div class="section-title">Escolha sua <strong>Opção</strong></div>
-    <div class="silver-bar"></div>
-    <p style="font-size:12px;font-weight:300;color:var(--muted);margin-top:12px;line-height:1.65;">Duas opções independentes. Escolha a que melhor se encaixa no momento da marca.</p>
+    <div class="week-label">Semana 2 · Pós-captação</div>
+    <div class="week-note">24 a 30 de agosto — já considerando material novo produzido na captação.</div>
 
-    <!-- OPÇÃO 1 — COMPLETO -->
-    <div class="opcao op-completo">
-      <div class="op-header">
-        <div class="op-badge">Opção 01 · Recomendada</div>
-        <div class="op-nome">Mídias Sociais<br>Completo + Tráfego</div>
-        <div class="op-valor">R$ 1.990</div>
-        <div class="op-periodo">por mês · mão de obra</div>
-      </div>
-      <div class="op-body">
-        <div class="reels-destaque">
-          <div class="reels-destaque-label">🎬 Produção completa de vídeo</div>
-          <div class="reels-destaque-title">4 Reels por mês</div>
-          <div class="reels-destaque-sub">1 captação mobile mensal (até 3h) · Até 45 segundos cada</div>
-          <div class="reels-tags">
-            <div class="reels-tag">Captação no local</div>
-            <div class="reels-tag">Edição profissional</div>
-            <div class="reels-tag">Publicação</div>
-          </div>
-        </div>
-        <ul class="item-list">
-          <li>Gestão completa do Instagram</li>
-          <li>Planejamento estratégico mensal</li>
-          <li>Setup completo do Instagram (bio, destaques, perfil comercial)</li>
-          <li>3 publicações semanais no feed (fotos + carrosséis)</li>
-          <li>Produção de stories estratégicos</li>
-          <li>Relatório mensal de resultados</li>
-          <li>Criação e gestão de campanhas no Meta Ads</li>
-          <li>Estratégia de captação e conversão</li>
-          <li>Testes A/B e otimização contínua</li>
-        </ul>
-        <div class="verba-note">
-          <p>⚠️ Verba de anúncios: <strong>R$ 900 – R$ 1.200/mês</strong> paga diretamente à plataforma, não inclusa neste valor.</p>
-        </div>
-        <div class="verba-note" style="margin-top:8px;">
-          <p>⚠️ Modelo para captação de vídeo: <strong>custo à parte</strong>, acordado conforme necessidade.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- OPÇÃO 2 — REELS -->
-    <div class="opcao op-reels">
-      <div class="op-header">
-        <div class="op-badge">Opção 02</div>
-        <div class="op-nome">4 Reels + Estratégia</div>
-        <div class="op-valor">R$ 750</div>
-        <div class="op-periodo">por mês</div>
-      </div>
-      <div class="op-body">
-        <div class="reels-destaque">
-          <div class="reels-destaque-label">🎬 Produção completa de vídeo</div>
-          <div class="reels-destaque-title">4 Reels por mês</div>
-          <div class="reels-destaque-sub">1 captação mobile mensal (até 3h) · Até 45 segundos cada</div>
-          <div class="reels-tags">
-            <div class="reels-tag">Captação no local</div>
-            <div class="reels-tag">Edição profissional</div>
-            <div class="reels-tag">Publicação</div>
-          </div>
-        </div>
-        <ul class="item-list">
-          <li>Calendário de conteúdos mensal</li>
-          <li>Pesquisa de mercado estratégica mensal</li>
-        </ul>
-        <div class="verba-note">
-          <p>⚠️ Modelo para captação: <strong>custo à parte</strong>, acordado conforme necessidade.</p>
-        </div>
-      </div>
-    </div>
-
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Seg 24</span><span class="cal-fmt">Feed · Reels</span></div><div class="cal-text">Lançamento do primeiro look com fotos novas da captação.</div><div class="cal-text cal-story"><b>Stories:</b> bastidor do lançamento e contagem regressiva do dia.</div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Ter 25</span><span class="cal-fmt story-only">Stories</span></div><div class="cal-text">Detalhe de still de produto (tecido, acabamento, caimento), prévia do próximo post.</div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Qua 26</span><span class="cal-fmt">Feed · Carrossel</span></div><div class="cal-text">"Como usar" a peça nova em diferentes ocasiões.</div><div class="cal-text cal-story"><b>Stories:</b> making of da captação, bastidores do dia de fotos.</div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Qui 27</span><span class="cal-fmt story-only">Stories</span></div><div class="cal-text">Enquete sobre qual peça usar no fim de semana.</div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Sex 28</span><span class="cal-fmt">Feed</span></div><div class="cal-text">Depoimento ou UGC, com chamada de fechamento de semana.</div><div class="cal-text cal-story"><b>Stories:</b> CTA de fim de semana e aviso de horário da loja.</div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Sáb 29</span><span class="cal-fmt story-only">Stories</span></div><div class="cal-text">Loja aberta, aviso de horário de fim de semana.</div></div>
+    <div class="cal-day"><div class="cal-head"><span class="cal-date">Dom 30</span><span class="cal-fmt story-only">Stories</span></div><div class="cal-text">Recap dos melhores posts da semana.</div></div>
   </div>
-  <div class="inner-footer">
-    <div class="footer-brand">Profeta Menswear</div>
-    <div class="footer-page">04</div>
-  </div>
-</div>
+</section>
+
+<footer>Ecossistema Gestão · Profeta Menswear · agosto de 2026</footer>
+
+<script>
+  const panels = document.querySelectorAll('section.panel');
+  const buttons = document.querySelectorAll('nav.tabs button');
+  function showTab(i, btn){
+    panels.forEach((p,idx)=>p.classList.toggle('active', idx===i));
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+</script>
 
 </body>
 </html>
